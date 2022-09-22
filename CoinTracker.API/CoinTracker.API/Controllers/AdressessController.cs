@@ -19,7 +19,7 @@ namespace CoinTracker.API.Controllers
         {
             var result = this.addressesService.ListAddresses();
 
-            return new OkObjectResult()
+            return new OkObjectResult();
         }
     }
 }

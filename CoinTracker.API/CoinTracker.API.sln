@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinTracker.API", "CoinTracker.API\CoinTracker.API.csproj", "{F5D99C5D-3B1E-4DF8-B2DA-E8355EBB1EB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinTracker.Models", "..\CoinTracker.Models\CoinTracker.Models.csproj", "{05D994A4-73F4-4950-9544-A389F6214A62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinTracker.Models", "..\CoinTracker.Models\CoinTracker.Models.csproj", "{05D994A4-73F4-4950-9544-A389F6214A62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinTracker.API.Test", "CoinTracker.API.Test\CoinTracker.API.Test.csproj", "{1EA566DC-B390-4501-9F66-E53EDBA99937}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinTracker.API.Test", "..\CoinTracker.API.Test\CoinTracker.API.Test.csproj", "{63F1B032-5929-456F-9AEE-EBF7877E48B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{05D994A4-73F4-4950-9544-A389F6214A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05D994A4-73F4-4950-9544-A389F6214A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05D994A4-73F4-4950-9544-A389F6214A62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EA566DC-B390-4501-9F66-E53EDBA99937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EA566DC-B390-4501-9F66-E53EDBA99937}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EA566DC-B390-4501-9F66-E53EDBA99937}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EA566DC-B390-4501-9F66-E53EDBA99937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F1B032-5929-456F-9AEE-EBF7877E48B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F1B032-5929-456F-9AEE-EBF7877E48B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F1B032-5929-456F-9AEE-EBF7877E48B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F1B032-5929-456F-9AEE-EBF7877E48B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
