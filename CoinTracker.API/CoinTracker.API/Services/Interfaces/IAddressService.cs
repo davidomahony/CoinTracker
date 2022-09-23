@@ -6,6 +6,6 @@ namespace CoinTracker.API.Services.Interfaces
     {
         Task<AddressBalance> GetAddressBalanceAsync(string address);
 
-        Task<AddressTransaction> GetAddressTransactionAsync(string address);
+        Task<IEnumerable<AddressTransaction>> GetAddressTransactionAsync(string address);
     }
 }

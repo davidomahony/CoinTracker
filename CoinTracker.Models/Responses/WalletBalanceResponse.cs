@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CoinTracker.Models.Core;
 
 namespace CoinTracker.Models.Responses
 {
     public class WalletBalanceResponse
     {
+        public WalletBalanceResponse(WalletBalance balance)
+        {
+            this.WalletBalance = balance;
+        }
+
+        public WalletBalance WalletBalance { get; private set; }
     }
 }

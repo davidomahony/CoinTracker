@@ -4,8 +4,8 @@ namespace CoinTracker.API.Services.Interfaces
 {
     public interface IWalletService
     {
-        Task<IEnumerable<AddressTransaction>> GetTranssactionsAsync();
+        Task<IEnumerable<AddressTransaction>> GetTransactionsAsync();
 
-        Task<IEnumerable<AddressBalance>> GetBalanceAsync();
+        Task<WalletBalance> GetBalanceAsync();
     }
 }

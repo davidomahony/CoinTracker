@@ -1,5 +1,7 @@
 ﻿using CoinTracker.API.Services.Interfaces;
+using CoinTracker.Models.Responses;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoinTracker.API.Controllers
 {
@@ -15,11 +17,30 @@ namespace CoinTracker.API.Controllers
         }
 
         [HttpGet("ListAddresses")]
-        public IEnumerable<string> ListAddresses()
+        public IActionResult ListAddresses()
         {
             var result = this.addressesService.ListAddresses();
 
-            return new OkObjectResult();
+            var response = new ListAddressesResponse(result);
+
+            return Ok(response);
+        }
+
+        [HttpPost("AddAddresses")]
+        public IActionResult AddAddresses([Required][FromBody]string address)
+        {
+            this.addressesService.AddAddress(address);
+
+            return Ok("Added Address");
+        }
+
+
+        [HttpDelete("RemoveAddresses")]
+        public IActionResult RemoveAddresses([Required][FromBody] string address)
+        {
+            this.addressesService.RemoveAddress(address);
+
+            return Ok("Address removed");
         }
     }
 }

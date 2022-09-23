@@ -2,10 +2,10 @@
 {
     public interface IAddressesService
     {
-        Task AddAddress(string address);
+        void AddAddress(string address);
 
-        Task RemoveAddress(string address);
+        void RemoveAddress(string address);
 
-        Task<string> ListAddresses();
+        IEnumerable<string> ListAddresses();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CoinTracker.API.Services.Interfaces;
+using CoinTracker.Models.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,16 +20,20 @@ namespace CoinTracker.API.Controllers
         public async Task<IActionResult> FetchBalance([Required] [FromRoute] string address)
         {
             var result = await this.addressService.GetAddressBalanceAsync(address);
-            // Need to build the response not the results
-            return new OkObjectResult(result);
+
+            var response = new ListAddressBalanceResponse(result);
+
+            return new OkObjectResult(response);
         }
 
         [HttpGet("transactions")]
         public async Task<IActionResult> FetchTransactions([Required] [FromRoute] string address)
         {
             var result = await this.addressService.GetAddressTransactionAsync(address);
-            // // Neeed to build resonse not just list
-            return new OkObjectResult(result);
+
+            var response = new ListAddressTransactionsResponse(result);
+
+            return new OkObjectResult(response);
         }
     }
 }

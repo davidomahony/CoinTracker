@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoinTracker.Models.Responses
+namespace CoinTracker.API.Test.Controllers
 {
-    public class WalletTransactionResponse
+    internal class WalletControllerTests
     {
     }
 }
