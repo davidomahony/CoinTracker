@@ -4,7 +4,7 @@ namespace CoinTracker.Models.Responses
 {
     public class ListAddressBalanceResponse
     {
-        public ListAddressBalanceResponse (AddressBalance balance)
+        public ListAddressBalanceResponse(AddressBalance balance)
         {
             this.Balance = balance;
         }
