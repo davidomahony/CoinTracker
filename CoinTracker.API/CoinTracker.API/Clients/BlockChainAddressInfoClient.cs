@@ -24,10 +24,9 @@ namespace CoinTracker.API.Clients
 
         public async Task<bool> DoesAddressExist(string address)
         {
-            var response = await this.httpClient.GetAsync($"rawaddr/{address}");
+            var response = await this.httpClient.GetAsync($"rawaddr/{address}?offset=0&limit=1");
 
             return response.StatusCode == System.Net.HttpStatusCode.OK;
-
         }
 
         public async Task<AddressBalanceInfo> GetAddressBalanceAsync(string address)
