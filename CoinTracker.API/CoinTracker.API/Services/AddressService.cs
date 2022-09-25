@@ -1,4 +1,4 @@
-﻿using CoinTracker.API.Clients;
+﻿using CoinTracker.API.Clients.Interfaces;
 using CoinTracker.API.Services.Interfaces;
 using CoinTracker.Models.Core;
 

@@ -1,4 +1,5 @@
-﻿using CoinTracker.API.Clients;
+﻿using CoinTracker.API.Clients.Interfaces;
+using CoinTracker.API.Constants;
 using CoinTracker.API.Services.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using System.Net;
@@ -8,24 +9,9 @@ namespace CoinTracker.API.Services
 {
     public class AddressesService : IAddressesService
     {
-        // I would like to put these known error responses in there own file
-        private readonly HttpResponseMessage InvalidAddressResponse = new HttpResponseMessage(HttpStatusCode.NotFound)
-        {
-            ReasonPhrase = "Address inputted is not a valid address"
-        };
-
-        private readonly HttpResponseMessage ExistingAddressResponse = new HttpResponseMessage(HttpStatusCode.BadRequest)
-        {
-            ReasonPhrase = "Address already exist in the wallet"
-        };
-
-        private readonly HttpResponseMessage NonExistingAddressResponse = new HttpResponseMessage(HttpStatusCode.BadRequest)
-        {
-            ReasonPhrase = "Address does not exist in wallet"
-        };
-
+        private const string AddressesCacheKey = "Addresses_";
+        private readonly IAddressInfoClient addressInfoClient;
         private IList<string> addresses;
-        private IAddressInfoClient addressInfoClient;
 
         public AddressesService(IMemoryCache cache, IAddressInfoClient addressInfoClient)
         {
@@ -39,16 +25,16 @@ namespace CoinTracker.API.Services
             this.PopulateAddresses(cache);
         }
 
-        public async Task AddAddress(string address)
+        public async Task AddAddressAsync(string address)
         {
             if (this.addresses.Contains(address))
             {
-                throw new HttpResponseException(ExistingAddressResponse);
+                throw new HttpResponseException(ClientErrorResponseMessages.ExistingAddressResponse);
             }
 
             if (!(await ValidateAddressExists(address)))
             {
-                throw new HttpResponseException(InvalidAddressResponse);
+                throw new HttpResponseException(ClientErrorResponseMessages.InvalidAddressResponse);
             }
 
             this.addresses.Add(address);
@@ -63,7 +49,7 @@ namespace CoinTracker.API.Services
         {
             if (!this.addresses.Contains(address))
             {
-                throw new HttpResponseException(NonExistingAddressResponse);
+                throw new HttpResponseException(ClientErrorResponseMessages.NonExistingAddressResponse);
             }
 
             this.addresses.Remove(address);
@@ -71,7 +57,8 @@ namespace CoinTracker.API.Services
 
         private void PopulateAddresses(IMemoryCache cache)
         {
-            this.addresses = new List<string>();
+            var cacheResult = cache.Get(AddressesCacheKey);
+            this.addresses = cacheResult as IList<string> ?? new List<string>();
         }
 
         private Task<bool> ValidateAddressExists(string address)

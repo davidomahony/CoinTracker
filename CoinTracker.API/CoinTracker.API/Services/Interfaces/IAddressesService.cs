@@ -2,7 +2,7 @@
 {
     public interface IAddressesService
     {
-        Task AddAddress(string address);
+        Task AddAddressAsync(string address);
 
         void RemoveAddress(string address);
 

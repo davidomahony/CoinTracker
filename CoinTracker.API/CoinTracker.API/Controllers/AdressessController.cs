@@ -29,7 +29,7 @@ namespace CoinTracker.API.Controllers
         [HttpPost("AddAddresses")]
         public IActionResult AddAddresses([Required][FromBody]string address)
         {
-            this.addressesService.AddAddress(address);
+            this.addressesService.AddAddressAsync(address);
 
             return Ok("Added Address");
         }

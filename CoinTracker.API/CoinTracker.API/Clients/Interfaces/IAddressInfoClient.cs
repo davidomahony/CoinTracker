@@ -1,6 +1,6 @@
 ﻿using CoinTracker.Models.Core;
 
-namespace CoinTracker.API.Clients
+namespace CoinTracker.API.Clients.Interfaces
 {
     public interface IAddressInfoClient
     {
