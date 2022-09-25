@@ -25,7 +25,7 @@ namespace CoinTracker.API.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("transactions")]
         public async Task<IActionResult> GetWalletTransactions()
         {
             var result = await this.walletService.GetTransactionsAsync();
