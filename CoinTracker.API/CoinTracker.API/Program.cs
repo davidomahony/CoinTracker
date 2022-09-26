@@ -2,11 +2,15 @@ using CoinTracker.API.Clients;
 using CoinTracker.API.Clients.Interfaces;
 using CoinTracker.API.Services;
 using CoinTracker.API.Services.Interfaces;
+using CoinTracker.Core.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add controllers
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add<HttpResponseExceptionFilter>();
+});
 
 // Add services
 builder.Services.AddScoped<IAddressService, AddressService>();
@@ -14,6 +18,10 @@ builder.Services.AddScoped<IAddressesService, AddressesService>();
 builder.Services.AddMemoryCache();
 
 // Add clients
+builder.Services.AddHttpClient(
+    "BlockChainAddressInfoClient",
+    client => client.BaseAddress = new Uri("https://blockchain.info"));
+
 builder.Services.AddScoped<IAddressInfoClient, BlockChainAddressInfoClient>();
 
 

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CoinTracker.Core\CoinTracker.Core.csproj" />
     <ProjectReference Include="..\..\CoinTracker.Models\CoinTracker.Models.csproj" />
   </ItemGroup>
 

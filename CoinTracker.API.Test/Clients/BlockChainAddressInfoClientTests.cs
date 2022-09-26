@@ -67,7 +67,7 @@ namespace CoinTracker.API.Test.Clients
                 ItExpr.IsAny<CancellationToken>()).ReturnsAsync(
                 new HttpResponseMessage()
                 {
-                    StatusCode = System.Net.HttpStatusCode.OK,
+                    StatusCode = System.Net.HttpStatusCode.NotFound,
                 });
             httpClientFactory.Setup(x => x.CreateClient("BlockChainAddressInfoClient")).Returns(new HttpClient(mockHandler.Object)
             {
