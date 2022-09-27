@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CoinTracker.API.Clients;
 using CoinTracker.API.Clients.Interfaces;
+using CoinTracker.Core.Exceptions;
 using Moq;
 using Moq.Protected;
 
@@ -76,8 +77,7 @@ namespace CoinTracker.API.Test.Clients
 
             IAddressInfoClient client = new BlockChainAddressInfoClient(this.httpClientFactory.Object);
 
-            var result = await client.DoesAddressExist(" I am a fake address");
-            Assert.IsFalse(result);
+            Assert.ThrowsAsync(typeof(ApiException), async () => await client.DoesAddressExist(" I am a fake address"));
         }
 
         [Test]

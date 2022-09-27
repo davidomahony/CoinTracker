@@ -21,7 +21,10 @@ namespace CoinTracker.API.Controllers
         {
             var result = await this.addressService.GetAddressBalanceAsync(address);
 
-            var response = new ListAddressBalanceResponse(result);
+            var response = new ListAddressBalanceResponse(result)
+            {
+                Address = address
+            };
 
             return new OkObjectResult(response);
         }
@@ -31,7 +34,10 @@ namespace CoinTracker.API.Controllers
         {
             var result = await this.addressService.GetAddressTransactionAsync(address);
 
-            var response = new ListAddressTransactionsResponse(result);
+            var response = new ListAddressTransactionsResponse(result)
+            {
+                Address = address
+            };
 
             return new OkObjectResult(response);
         }

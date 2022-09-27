@@ -27,7 +27,7 @@ namespace CoinTracker.API.Clients
         {
             var response = await this.httpClient.GetAsync($"rawaddr/{address}?offset=0&limit=1");
 
-            if ((int)response.StatusCode < 499)
+            if ((int)response.StatusCode < 499 && (int)response.StatusCode > 399)
             {
                 throw new ApiException(
                     System.Net.HttpStatusCode.InternalServerError,
@@ -42,7 +42,7 @@ namespace CoinTracker.API.Clients
         {
             var response = await this.httpClient.GetAsync($"rawaddr/{address}");
 
-            if ((int)response.StatusCode > 499)
+            if ((int)response.StatusCode > 499 && (int)response.StatusCode > 399)
             {
                 throw new ApiException(
                     System.Net.HttpStatusCode.InternalServerError,

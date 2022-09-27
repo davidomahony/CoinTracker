@@ -13,7 +13,7 @@ namespace CoinTracker.Core.Filters
 
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            
+            // not sure if i will use this yet
         }
 
         public void OnActionExecuting(ActionExecutingContext context)

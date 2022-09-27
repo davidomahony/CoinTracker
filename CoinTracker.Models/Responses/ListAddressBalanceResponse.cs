@@ -11,6 +11,6 @@ namespace CoinTracker.Models.Responses
 
         public AddressBalance Balance { get; private set; }
 
-        public string Address { get; private set; }
+        public string Address { get; set; }
     }
 }
